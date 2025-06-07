@@ -1,0 +1,42 @@
+{
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "type-check": "vue-tsc --build"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.13.2",
+    "@iconify-json/lucide": "^1.2.45",
+    "@tailwindcss/vite": "^4.1.8",
+    "@tsconfig/bun": "^1.0.7",
+    "@typed-sigterm/eslint-config": "^1.4.1",
+    "@types/bun": "^1.2.15",
+    "@types/mixpanel-browser": "^2.60.0",
+    "@vitejs/plugin-legacy": "^6.1.1",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vue/tsconfig": "^0.7.0",
+    "@vueuse/components": "^13.3.0",
+    "@vueuse/core": "^13.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "eslint": "^9.28.0",
+    "is-mobile": "^5.0.0",
+    "lucide-vue-next": "^0.511.0",
+    "mixpanel-browser": "^2.65.0",
+    "postcss-preset-env": "^10.2.1",
+    "reka-ui": "^2.3.1",
+    "shadcn-vue": "^2.2.0",
+    "tailwind-merge": "^3.3.0",
+    "tailwindcss": "^4.1.8",
+    "tw-animate-css": "^1.3.3",
+    "typescript": "^5.8.2",
+    "unplugin-icons": "^22.1.0",
+    "vite": "^6.3.5",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.8",
+    "zod": "^3.25.56"
+  }
+}
