@@ -9,7 +9,7 @@ const form = inject(FormInjectKey)!;
 <template>
   <section>
     <h2>
-      #4 对舞萌 2025 的想法
+      #4 有什么想说的
     </h2>
 
     <Textarea
