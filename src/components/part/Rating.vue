@@ -10,7 +10,7 @@ const form = inject(FormInjectKey)!;
 <template>
   <section>
     <h2>
-      #1 这一年，你的变化是……
+      #1 这一年，你的变化是
     </h2>
 
     <div class="flex items-center w-full justify-between">
