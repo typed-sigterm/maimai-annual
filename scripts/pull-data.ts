@@ -1,6 +1,6 @@
-import type { Song } from '../shared/schema';
+import type { Song } from '#shared/utils/schema';
 import path from 'node:path';
-import { z } from 'zod/v4';
+import { z } from 'zod';
 
 // autocorrect: false
 const VERSIONS = [
@@ -28,9 +28,11 @@ const VERSIONS = [
   'BUDDiES',
   'BUDDiES PLUS',
   'PRiSM',
+  'PRiSM PLUS',
+  'CiRCLE',
+  'CiRCLE PLUS',
 ] as const;
 // autocorrect: true
-const FUTURE_VERSION = 'PRiSM PLUS'; // 国行版 +2，需要过滤掉
 
 async function songs() {
   const SourceSchema = z.looseObject({
@@ -43,7 +45,7 @@ async function songs() {
           type: z.enum(['std', 'dx']),
           difficulty: z.enum(['basic', 'advanced', 'expert', 'master', 'remaster']),
           internalLevelValue: z.number(),
-          version: z.enum([...VERSIONS, FUTURE_VERSION]),
+          version: z.enum(VERSIONS),
         }),
         z.looseObject({
           type: z.enum(['utage', 'utage1p', 'utage2p']),
@@ -66,8 +68,6 @@ async function songs() {
     };
 
     for (const sheet of song.sheets) {
-      if (sheet.version === FUTURE_VERSION)
-        continue;
       if (sheet.type !== 'std' && sheet.type !== 'dx')
         continue; // 过滤宴谱
       output[song.songId].charts.push({
@@ -86,12 +86,13 @@ async function songs() {
   }
 
   await Bun.write(
-    Bun.file(path.resolve(import.meta.dirname, '../src/assets/songs.json')),
+    Bun.file(path.resolve(import.meta.dirname, '../app/assets/songs.json')),
     JSON.stringify(output, null, 2),
   );
 }
 
 async function maps() {
+  return;
   const SourceSchema = z.array(z.object({
     id: z.string(),
     name: z.string(),

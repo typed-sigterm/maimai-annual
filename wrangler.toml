@@ -1,0 +1,13 @@
+name = "maimai-2025"
+compatibility_date = "2026-05-31"
+preview_urls = true
+
+[assets]
+directory = "./dist"
+
+[build]
+command = "bun run build"
+
+[route]
+pattern = "maimai-2025.by-ts.top"
+custom_domain = true
