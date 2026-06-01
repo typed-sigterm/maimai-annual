@@ -3,6 +3,13 @@ export default defineNuxtConfig({
     '@nuxt/ui',
   ],
 
+  app: {
+    head: {
+      htmlAttrs: { lang: 'zh-CN' },
+      title: '舞萌 2025 年度报告',
+    },
+  },
+
   ssr: false,
 
   css: ['~/app.css'],

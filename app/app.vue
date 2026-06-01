@@ -11,7 +11,7 @@ import SubmitterInput from '~/components/SubmitterInput.vue';
 import { FormInjectKey, getDefaultForm } from '~/components/utils/form';
 
 if (!import.meta.env.DEV) {
-  mixpanel.init(import.meta.env.MAI_MIXPANEL_TOKEN, {
+  mixpanel.init(import.meta.env.MAI_MIXPANEL_TOKEN!, {
     track_pageview: true,
   });
 }
@@ -84,32 +84,29 @@ async function confirm() {
     </div>
   </div>
 
-  <div class="w-120 mx-auto mt-2">
-    <p>
-      遇到问题？在
-      <ULink href="https://github.com/typed-sigterm/maimai-annual/issues/new" target="_blank" active>
-        GitHub
-      </ULink>
-      上创建 issue，或 QQ 联系 3937775997
-    </p>
+  <div class="flex w-120 mx-auto mt-2 gap-2">
+    <ULink class="flex items-center" href="https://github.com/typed-sigterm/maimai-annual" target="_blank">
+      <UIcon name="logos:github-icon" />
+    </ULink>
+    <ULink href="https://typed-kernel.feishu.cn/share/base/form/shrcnFCsKC1M8wi7X8qeeVAWVqd" target="_blank" active>
+      问题反馈
+    </ULink>
   </div>
 
   <UModal v-model:open="saving">
     <template #content>
       <div class="p-6">
         <h2 class="text-lg font-semibold mb-2">
-          反馈分享照片
+          Work in progress...
         </h2>
-        <p class="text-muted-foreground mb-4">
-          这个功能遇到了大量的兼容性问题，所以干脆被删掉了。
+        <p class="text-muted-foreground">
+          开发者在上学 ╮(╯_╰)╭ 预计 6 月 7 日前完成
         </p>
 
-        <div class="flex items-center space-x-2 py-4">
-          <UCheckbox v-model="sendAnonymousData" />
-          <label>发送匿名统计数据</label>
-        </div>
-
-        <div class="flex justify-end gap-2 pt-4">
+        <div class="flex justify-between gap-2 mt-2">
+          <UFormField class="items-center" orientation="horizontal" label="发送匿名统计数据">
+            <UCheckbox v-model="sendAnonymousData" />
+          </UFormField>
           <UButton @click="confirm">
             给爷整笑了
           </UButton>
