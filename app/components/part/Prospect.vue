@@ -10,7 +10,7 @@ const form = inject(FormInjectKey)!;
 <template>
   <section>
     <h2 class="mb-1 font-semibold">
-      #3 对舞萌 2025 的想法
+      #3 对舞萌 2026 的想法
     </h2>
 
     <div class="flex text-xs gap-2 ml-2">

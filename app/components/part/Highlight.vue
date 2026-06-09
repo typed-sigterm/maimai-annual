@@ -9,7 +9,7 @@ const form = inject(FormInjectKey)!;
 <template>
   <section>
     <h2 class="mb-1 font-semibold">
-      #2 你的 2024 之最
+      #2 你的 2025 之最
     </h2>
 
     <div class="grid grid-cols-5 text-xs w-full gap-0 whitespace-nowrap">

@@ -58,7 +58,7 @@ async function confirm() {
         <img
           src="~/assets/maimai.webp"
           class="inline-block size-18 mr-4 object-cover"
-          alt="舞萌 2024"
+          alt="舞萌 2025"
         >
         <h1 class="text-2xl font-bold">
           给自己写一张
@@ -71,7 +71,7 @@ async function confirm() {
           <SubmitterInput v-model="form.submitter" />
         </div>
         <p class="text-xs">
-          https://maimai-2024.by-ts.top
+          https://maimai-2025.by-ts.top
         </p>
       </div>
     </div>
