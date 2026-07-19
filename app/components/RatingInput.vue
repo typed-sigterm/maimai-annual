@@ -47,19 +47,24 @@ function confirm() {
     </template>
   </UModal>
 
-  <div
+  <button
+    type="button"
     v-bind="$attrs"
-    class="flex items-center bg-cover bg-no-repeat cursor-pointer"
+    class="flex items-center bg-cover bg-no-repeat cursor-pointer bg-transparent border-0 p-0 font-inherit text-left w-full block appearance-none"
     :style="{ backgroundImage: `url(${ratingBg})`, aspectRatio: '664 / 130' }"
+    :aria-label="`DX Rating: ${rating}`"
+    aria-haspopup="dialog"
+    :aria-expanded="editing"
     @click="editing = true"
   >
     <img
       v-for="i in 5"
       :key="i"
+      alt=""
       class="h-5 pointer-events-none"
       :class="{ invisible: ratingString[i - 1] === ' ' }"
       :style="{ marginLeft: i === 1 ? '46.5%' : '-0.8%' }"
       :src="NumberImage[ratingString[i - 1] === ' ' ? '0' : ratingString[i - 1]]"
     >
-  </div>
+  </button>
 </template>

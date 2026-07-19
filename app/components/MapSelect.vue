@@ -76,7 +76,14 @@ function reset() {
     </template>
   </UModal>
 
-  <div v-bind="$attrs" class="cursor-pointer" @click="editing = true">
+  <button
+    type="button"
+    v-bind="$attrs"
+    class="cursor-pointer bg-transparent border-0 p-0 font-inherit text-left w-full block appearance-none"
+    aria-haspopup="dialog"
+    :aria-expanded="editing"
+    @click="editing = true"
+  >
     <img
       :src="map ? `https://dev.maimai.moe/img/version/${map}.png` : placeholder"
       :alt="mapName"
@@ -84,5 +91,5 @@ function reset() {
       class="h-full object-contain rounded-xs"
       @error="($event.target as HTMLImageElement).src = placeholder"
     >
-  </div>
+  </button>
 </template>

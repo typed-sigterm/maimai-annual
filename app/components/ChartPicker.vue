@@ -158,21 +158,26 @@ function reset() {
     </template>
   </UModal>
 
-  <div
+  <button
+    type="button"
     v-bind="$attrs"
-    class="cursor-pointer bg-contain bg-no-repeat"
+    class="cursor-pointer bg-contain bg-no-repeat bg-transparent border-0 p-0 font-inherit text-left w-full block appearance-none"
     :class="{ 'p-2': chart && 'type' in chart }"
     :style="{
       backgroundImage: chart && 'type' in chart
         ? `url(${DifficultyImage[chart?.difficulty]})`
         : undefined,
     }"
+    :aria-label="chartSong?.title ?? '选择谱面'"
+    aria-haspopup="dialog"
+    :aria-expanded="editing"
     @click="editing = true"
   >
     <img
       class="h-full"
       :class="{ 'rounded-xs': !(chart && 'type' in chart) }"
       :src="chartSong ? `https://shama.dxrating.net/images/cover/v2/${chartSong.image}.jpg` : placeholder"
+      :alt="chartSong?.title ?? ''"
       :title="chartSong?.title"
       @error="($event.target as HTMLImageElement).src = placeholder"
     >
@@ -185,5 +190,5 @@ function reset() {
         backgroundColor: chart.type === 'dx' ? '#fd7e14' : '#228be6',
       }"
     >
-  </div>
+  </button>
 </template>
