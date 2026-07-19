@@ -16,7 +16,13 @@ if (!import.meta.env.DEV) {
   });
 }
 
-const form = useLocalStorage('form', getDefaultForm());
+const form = useLocalStorage('form', getDefaultForm(), {
+  mergeDefaults: (stored, defaults) => {
+    if (stored && typeof stored === 'object' && 'schema' in stored && stored.schema === defaults.schema)
+      return { ...defaults, ...stored };
+    return defaults;
+  },
+});
 provide(FormInjectKey, form);
 
 const saving = ref(false);
