@@ -1,4 +1,4 @@
-import type { Song } from '#shared/utils/schema';
+import type { Song } from '../shared/utils/schema';
 import path from 'node:path';
 import { z } from 'zod';
 
@@ -60,26 +60,27 @@ async function songs() {
   const output: Record<string, Song> = {};
 
   for (const song of source.songs) {
-    output[song.songId] = {
+    const entry: Song = {
       charts: [],
       image: song.imageName,
       title: song.title,
       version: '',
     };
+    output[song.songId] = entry;
 
     for (const sheet of song.sheets) {
       if (sheet.type !== 'std' && sheet.type !== 'dx')
         continue; // 过滤宴谱
-      output[song.songId].charts.push({
+      entry.charts.push({
         type: sheet.type,
         difficulty: sheet.difficulty,
       });
     }
 
-    if (output[song.songId].charts.length === 0) {
+    if (entry.charts.length === 0) {
       delete output[song.songId];
     } else {
-      output[song.songId].version = VERSIONS.find(
+      entry.version = VERSIONS.find(
         v => song.sheets.some(s => s.version === v),
       )!;
     }
